@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>E-Com || Checkout</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body>
+		<header class="bg-white shadow">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between h-16">
+					<!-- Logo -->
+					<div class="flex-shrink-0">
+						<a href="index.html" class="text-2xl font-bold text-gray-800"
+							>E-Com</a
+						>
+					</div>
+
+					<!-- Hamburger Menu for Mobile -->
+					<div class="flex sm:hidden">
+						<button
+							type="button"
+							class="text-gray-700 hover:text-gray-900 focus:outline-none"
+						>
+							<svg
+								class="h-6 w-6"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								></path>
+							</svg>
+						</button>
+					</div>
+
+					<!-- Desktop Navigation and User Account -->
+					<nav class="hidden sm:flex space-x-4">
+						<div class="hidden sm:block">
+							<div class="flex space-x-4">
+								<a
+									href="index.html"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Home</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Products</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Categories</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>About</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Contact</a
+								>
+							</div>
+						</div>
+						<!-- Search Bar -->
+						<div class="relative">
+							<input
+								type="text"
+								class="w-64 py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+								placeholder="Search products..."
+							/>
+							<button
+								class="absolute top-0 right-0 h-full w-12 bg-indigo-500 text-white rounded-r-md flex items-center justify-center"
+							>
+								<svg
+									class="h-6 w-6"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M15 19l-7-7 7-7"
+									></path>
+								</svg>
+							</button>
+						</div>
+
+						<!-- Cart Summary -->
+						<div class="flex items-center">
+							<span class="text-gray-700">Cart:</span>
+							<span class="ml-1 text-indigo-500">3 items</span>
+							<span class="ml-1 text-indigo-500">$99.99</span>
+						</div>
+
+						<!-- User Account Dropdown -->
+						<div class="relative">
+							<button
+								class="flex items-center text-gray-700 hover:text-gray-900 focus:outline-none"
+								onclick="toggleUserDropdown()"
+							>
+								<span class="mr-1">Hi, User</span>
+								<svg
+									class="h-5 w-5"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									></path>
+								</svg>
+							</button>
+							<div
+								id="userDropdown"
+								class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+							>
+								<div class="py-1" role="menu" aria-orientation="vertical">
+									<a
+										href="#"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+										role="menuitem"
+										>Profile</a
+									>
+									<a
+										href="#"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+										role="menuitem"
+										>Orders</a
+									>
+									<a
+										href="#"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+										role="menuitem"
+										>Logout</a
+									>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<!-- Mobile Navigation Menu -->
+			<div class="sm:hidden">
+				<div class="px-2 pt-2 pb-3 space-y-1">
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Home</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Products</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Categories</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>About</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Contact</a
+					>
+				</div>
+			</div>
+		</header>
+		<div class="max-w-3xl mx-auto px-10 my-6">
+			<!-- Shipping Address and Billing Information -->
+			<div class="mb-6">
+				<h2 class="text-2xl font-semibold mb-4">
+					Shipping Address and Billing Information
+				</h2>
+				<form>
+					<!-- Form fields for shipping address and billing information -->
+					<div class="mb-4">
+						<label
+							for="shipping-address"
+							class="block text-gray-700 font-medium mb-2"
+							>Shipping Address</label
+						>
+						<input
+							type="text"
+							id="shipping-address"
+							class="border border-gray-300 rounded px-3 py-2 w-full"
+							placeholder="Enter your shipping address"
+						/>
+					</div>
+					<!-- Add more form fields for billing information if needed -->
+				</form>
+			</div>
+
+			<!-- Shipping Options and Costs -->
+			<div class="mb-6">
+				<h2 class="text-2xl font-semibold mb-4">Shipping Options and Costs</h2>
+				<div>
+					<!-- Shipping options and costs -->
+					<div class="flex items-center mb-2">
+						<input
+							type="radio"
+							id="shipping-option1"
+							name="shipping-option"
+							class="mr-2"
+						/>
+						<label for="shipping-option1" class="text-gray-700"
+							>Standard Shipping - $4.99</label
+						>
+					</div>
+					<div class="flex items-center">
+						<input
+							type="radio"
+							id="shipping-option2"
+							name="shipping-option"
+							class="mr-2"
+						/>
+						<label for="shipping-option2" class="text-gray-700"
+							>Express Shipping - $9.99</label
+						>
+					</div>
+				</div>
+			</div>
+
+			<!-- Payment Method Selection -->
+			<div class="mb-6">
+				<h2 class="text-2xl font-semibold mb-4">Payment Method Selection</h2>
+				<div>
+					<!-- Payment method selection options -->
+					<div class="flex items-center mb-2">
+						<input
+							type="radio"
+							id="payment-method1"
+							name="payment-method"
+							class="mr-2"
+						/>
+						<label for="payment-method1" class="text-gray-700"
+							>Credit Card</label
+						>
+					</div>
+					<div class="flex items-center">
+						<input
+							type="radio"
+							id="payment-method2"
+							name="payment-method"
+							class="mr-2"
+						/>
+						<label for="payment-method2" class="text-gray-700">PayPal</label>
+					</div>
+				</div>
+			</div>
+
+			<!-- Order Summary and Total Amount -->
+			<div class="mb-6">
+				<h2 class="text-2xl font-semibold mb-4">Order Summary</h2>
+				<div class="bg-white rounded-lg shadow-md p-4">
+					<!-- Order summary details -->
+					<p class="text-gray-600">Total Items: 2</p>
+					<p class="text-gray-600">Subtotal: $79.98</p>
+					<p class="text-gray-600">Shipping: $4.99</p>
+					<p class="text-gray-600">Total: $84.97</p>
+				</div>
+			</div>
+
+			<!-- Place Order Button -->
+			<div class="flex justify-end">
+				<button
+					class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded"
+				>
+					Place Order
+				</button>
+			</div>
+		</div>
+		<footer class="bg-gray-900 text-white">
+			<div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+					<!-- About us -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">About Us</h4>
+						<p class="text-gray-400">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+							maximus nisl et erat commodo, eu aliquet ligula convallis.
+						</p>
+					</div>
+
+					<!-- Contact Information -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">Contact Information</h4>
+						<p class="text-gray-400">123 Street, City</p>
+						<p class="text-gray-400">Phone: +1 234 567 890</p>
+						<p class="text-gray-400">Email: info@example.com</p>
+					</div>
+
+					<!-- Customer Service Links -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">Customer Service</h4>
+						<ul>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white">FAQ</a>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white">Shipping</a>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white">Returns</a>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Contact Us</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Privacy Policy, Terms of Service, and Return Policy Links -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">Policies</h4>
+						<ul>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Privacy Policy</a
+								>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Terms of Service</a
+								>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Return Policy</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Social Media Icons and Subscribe to Newsletter Form -->
+				<div class="mt-8 flex items-center justify-between">
+					<!-- Social media icons -->
+					<div class="flex space-x-4">
+						<a href="#" class="text-white hover:text-gray-400"
+							><i class="fab fa-facebook-f"></i
+						></a>
+						<a href="#" class="text-white hover:text-gray-400"
+							><i class="fab fa-twitter"></i
+						></a>
+						<a href="#" class="text-white hover:text-gray-400"
+							><i class="fab fa-instagram"></i
+						></a>
+					</div>
+
+					<!-- Subscribe to newsletter form -->
+					<form class="flex items-center">
+						<input
+							type="email"
+							class="border border-gray-400 rounded py-2 px-4 mr-2 focus:outline-none focus:border-gray-500"
+							placeholder="Enter your email"
+						/>
+						<button
+							class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700"
+						>
+							Subscribe
+						</button>
+					</form>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>E-Com || Product Details</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="max-w-7xl mx-auto">
+		<header class="bg-white shadow">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between h-16">
+					<!-- Logo -->
+					<div class="flex-shrink-0">
+						<a href="index.html" class="text-2xl font-bold text-gray-800"
+							>E-Com</a
+						>
+					</div>
+
+					<!-- Hamburger Menu for Mobile -->
+					<div class="flex sm:hidden">
+						<button
+							type="button"
+							class="text-gray-700 hover:text-gray-900 focus:outline-none"
+						>
+							<svg
+								class="h-6 w-6"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								></path>
+							</svg>
+						</button>
+					</div>
+
+					<!-- Desktop Navigation and User Account -->
+					<nav class="hidden sm:flex space-x-4">
+						<div class="hidden sm:block">
+							<div class="flex space-x-4">
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Home</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Products</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Categories</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>About</a
+								>
+								<a
+									href="#"
+									class="text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-3 py-2 rounded-md transition duration-300"
+									>Contact</a
+								>
+							</div>
+						</div>
+						<!-- Search Bar -->
+						<div class="relative">
+							<input
+								type="text"
+								class="w-64 py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+								placeholder="Search products..."
+							/>
+							<button
+								class="absolute top-0 right-0 h-full w-12 bg-indigo-500 text-white rounded-r-md flex items-center justify-center"
+							>
+								<svg
+									class="h-6 w-6"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M15 19l-7-7 7-7"
+									></path>
+								</svg>
+							</button>
+						</div>
+
+						<!-- Cart Summary -->
+						<div class="flex items-center">
+							<span class="text-gray-700">Cart:</span>
+							<span class="ml-1 text-indigo-500">3 items</span>
+							<span class="ml-1 text-indigo-500">$99.99</span>
+						</div>
+
+						<!-- User Account Dropdown -->
+						<div class="relative">
+							<button
+								class="flex items-center text-gray-700 hover:text-gray-900 focus:outline-none"
+								onclick="toggleUserDropdown()"
+							>
+								<span class="mr-1">Hi, User</span>
+								<svg
+									class="h-5 w-5"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M19 9l-7 7-7-7"
+									></path>
+								</svg>
+							</button>
+							<div
+								id="userDropdown"
+								class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+							>
+								<div class="py-1" role="menu" aria-orientation="vertical">
+									<a
+										href="#"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+										role="menuitem"
+										>Profile</a
+									>
+									<a
+										href="#"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+										role="menuitem"
+										>Orders</a
+									>
+									<a
+										href="#"
+										class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+										role="menuitem"
+										>Logout</a
+									>
+								</div>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<!-- Mobile Navigation Menu -->
+			<div class="sm:hidden">
+				<div class="px-2 pt-2 pb-3 space-y-1">
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Home</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Products</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Categories</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>About</a
+					>
+					<a
+						href="#"
+						class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition duration-300"
+						>Contact</a
+					>
+				</div>
+			</div>
+		</header>
+		<div class="container mx-auto mt-20">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div class="md:order-2">
+					<!-- Product Image Gallery -->
+					<div class="overflow-hidden">
+						<img
+							src="https://images.pexels.com/photos/4968386/pexels-photo-4968386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+							alt="Product Image"
+							class="w-full transition-transform duration-300 transform hover:scale-110"
+						/>
+					</div>
+				</div>
+				<div class="md:order-1">
+					<!-- Product Details -->
+					<h1 class="text-2xl font-semibold mb-4">Product Title</h1>
+					<p class="text-gray-600 mb-4">Product Description</p>
+					<ul class="text-gray-600 mb-4">
+						<li>Feature 1</li>
+						<li>Feature 2</li>
+						<li>Feature 3</li>
+					</ul>
+					<p class="text-xl font-semibold mb-4">$99.99</p>
+					<button
+						class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+					>
+						Add to Cart
+					</button>
+					<div class="mt-4">
+						<!-- Product Variations -->
+						<label for="color-select" class="mr-2">Color:</label>
+						<select
+							id="color-select"
+							class="border border-gray-300 rounded px-2 py-1"
+						>
+							<option value="red">Red</option>
+							<option value="blue">Blue</option>
+							<option value="green">Green</option>
+						</select>
+						<label for="size-select" class="ml-4 mr-2">Size:</label>
+						<select
+							id="size-select"
+							class="border border-gray-300 rounded px-2 py-1"
+						>
+							<option value="small">Small</option>
+							<option value="medium">Medium</option>
+							<option value="large">Large</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="mt-8">
+				<!-- Related Products -->
+				<h2 class="text-2xl font-semibold mb-4">Related Products</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="bg-white rounded-lg shadow-md overflow-hidden">
+						<!-- Product 1 -->
+						<!-- Add product card HTML here -->
+						<div class="bg-white rounded-lg shadow-md overflow-hidden">
+							<div class="relative">
+								<div class="overflow-hidden">
+									<img
+										src="https://images.pexels.com/photos/1887975/pexels-photo-1887975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+										alt="Product Image 2"
+										class="w-full h-48 object-cover transition-transform duration-300"
+										style="transform-origin: center center"
+									/>
+								</div>
+								<div class="absolute top-2 right-2">
+									<span
+										class="px-2 py-1 bg-green-500 text-white text-xs font-semibold rounded"
+										>Sale</span
+									>
+								</div>
+							</div>
+							<div class="p-4">
+								<h3 class="text-lg font-medium text-gray-800">Product 2</h3>
+								<p class="text-gray-600 mt-2">$49.99</p>
+								<div class="flex items-center mt-2">
+									<svg
+										class="h-5 w-5 text-yellow-500"
+										xmlns="https://images.pexels.com/photos/1887975/pexels-photo-1887975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0l-9-5 9-5 9 5-9 5z"
+										/>
+									</svg>
+									<span class="text-gray-600 ml-1">(4.8)</span>
+								</div>
+							</div>
+							<div class="opacity-1 hover:opacity-100 transition duration-300">
+								<div
+									class="flex justify-center items-center bg-indigo-500 hover:bg-indigo-700 hover:text-green-300 text-white py-2"
+								>
+									<a href="#" class="font-medium">Add to Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white rounded-lg shadow-md overflow-hidden">
+						<!-- Product 2 -->
+						<!-- Add product card HTML here -->
+						<div class="bg-white rounded-lg shadow-md overflow-hidden">
+							<div class="relative">
+								<img
+									src="https://images.pexels.com/photos/1566412/pexels-photo-1566412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+									alt="Product Image 3"
+									class="w-full h-48 object-cover"
+								/>
+								<div class="absolute top-2 right-2">
+									<span
+										class="px-2 py-1 bg-indigo-500 text-white text-xs font-semibold rounded"
+										>New</span
+									>
+								</div>
+							</div>
+							<div class="p-4">
+								<h3 class="text-lg font-medium text-gray-800">Product 3</h3>
+								<p class="text-gray-600 mt-2">$39.99</p>
+								<div class="flex items-center mt-2">
+									<svg
+										class="h-5 w-5 text-yellow-500"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0l-9-5 9-5 9 5-9 5z"
+										/>
+									</svg>
+									<span class="text-gray-600 ml-1">(4.5)</span>
+								</div>
+							</div>
+							<div class="opacity-1 hover:opacity-100 transition duration-300">
+								<div
+									class="flex justify-center items-center bg-indigo-500 hover:bg-indigo-700 hover:text-green-300 text-white py-2"
+								>
+									<a href="#" class="font-medium">Add to Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-white rounded-lg shadow-md overflow-hidden">
+						<!-- Product 3 -->
+						<!-- Add product card HTML here -->
+						<div class="bg-white rounded-lg shadow-md overflow-hidden">
+							<div class="relative">
+								<img
+									src="https://images.pexels.com/photos/1861907/pexels-photo-1861907.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+									alt="Product Image 4"
+									class="w-full h-48 object-cover"
+								/>
+								<div class="absolute top-2 right-2">
+									<span
+										class="px-2 py-1 bg-indigo-500 text-white text-xs font-semibold rounded"
+										>New</span
+									>
+								</div>
+							</div>
+							<div class="p-4">
+								<h3 class="text-lg font-medium text-gray-800">Product 4</h3>
+								<p class="text-gray-600 mt-2">$59.99</p>
+								<div class="flex items-center mt-2">
+									<svg
+										class="h-5 w-5 text-yellow-500"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0l-9-5 9-5 9 5-9 5z"
+										/>
+									</svg>
+									<span class="text-gray-600 ml-1">(4.3)</span>
+								</div>
+							</div>
+							<div class="opacity-1 hover:opacity-100 transition duration-300">
+								<div
+									class="flex justify-center items-center bg-indigo-500 hover:bg-indigo-700 hover:text-green-300 text-white py-2"
+								>
+									<a href="#" class="font-medium">Add to Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="bg-gray-900 text-white my-6">
+			<div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+					<!-- About us -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">About Us</h4>
+						<p class="text-gray-400">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+							maximus nisl et erat commodo, eu aliquet ligula convallis.
+						</p>
+					</div>
+
+					<!-- Contact Information -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">Contact Information</h4>
+						<p class="text-gray-400">123 Street, City</p>
+						<p class="text-gray-400">Phone: +1 234 567 890</p>
+						<p class="text-gray-400">Email: info@example.com</p>
+					</div>
+
+					<!-- Customer Service Links -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">Customer Service</h4>
+						<ul>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white">FAQ</a>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white">Shipping</a>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white">Returns</a>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Contact Us</a
+								>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Privacy Policy, Terms of Service, and Return Policy Links -->
+					<div>
+						<h4 class="text-xl font-semibold mb-4">Policies</h4>
+						<ul>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Privacy Policy</a
+								>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Terms of Service</a
+								>
+							</li>
+							<li>
+								<a href="#" class="text-gray-400 hover:text-white"
+									>Return Policy</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Social Media Icons and Subscribe to Newsletter Form -->
+				<div class="mt-8 flex items-center justify-between">
+					<!-- Social media icons -->
+					<div class="flex space-x-4">
+						<a href="#" class="text-white hover:text-gray-400"
+							><i class="fab fa-facebook-f"></i
+						></a>
+						<a href="#" class="text-white hover:text-gray-400"
+							><i class="fab fa-twitter"></i
+						></a>
+						<a href="#" class="text-white hover:text-gray-400"
+							><i class="fab fa-instagram"></i
+						></a>
+					</div>
+
+					<!-- Subscribe to newsletter form -->
+					<form class="flex items-center">
+						<input
+							type="email"
+							class="border border-gray-400 rounded py-2 px-4 mr-2 focus:outline-none focus:border-gray-500"
+							placeholder="Enter your email"
+						/>
+						<button
+							class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700"
+						>
+							Subscribe
+						</button>
+					</form>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
